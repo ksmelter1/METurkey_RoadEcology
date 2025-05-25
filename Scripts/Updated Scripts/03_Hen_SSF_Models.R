@@ -1,11 +1,8 @@
 
 #'---
 #' title: Context-Dependent Habitat selection of Roads by female wild turkeys
-#' authors: "K. Smelter, M. Gonnerman, L. Berigan, F. Buderman, E. Blomberg
+#' authors: "K. Smelter
 #' date: "`r format(Sys.time(), '%d %B, %Y')`"
-#' outputs: Maine NLCD Raster, Distance from Primary Roads Raster, Distance from Secondary Roads Raster, ssf.covs.csv
-#'   html_document: 
-#'     toc: true
 #'---
 #'
 knitr::opts_chunk$set(warning = FALSE, message = FALSE, cache = TRUE)

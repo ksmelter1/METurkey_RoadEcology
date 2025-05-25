@@ -1,11 +1,8 @@
 
 #'---
 #' title: Context-Dependent Habitat selection of Roads by female wild turkeys
-#' authors: "K. Smelter, M. Gonnerman, L. Berigan, F. Buderman, E. Blomberg
+#' authors: "K. Smelter
 #' date: "`r format(Sys.time(), '%d %B, %Y')`"
-#' outputs: Maine NLCD Raster, Distance from Primary Roads Raster, Distance from Secondary Roads Raster, ssf.covs.csv
-#'   html_document: 
-#'     toc: true
 #'---
 #'
 knitr::opts_chunk$set(warning = FALSE, message = FALSE, cache = TRUE)
@@ -231,10 +228,10 @@ class(trk2)
 glimpse(trk2)
 
 #' Visualize step length distribution following vignette
-trk2 %>% dplyr::select(BirdID, steps) %>% unnest(cols = steps) %>% dplyr::filter(BirdID=="251") %>%
+trk2 |> dplyr::select(BirdID, steps) |> unnest(cols = steps) |> 
   ggplot(aes(sl_, fill = factor(BirdID))) + geom_density(alpha = 0.4)
 
-#' Create object with all used steps for analysis
+#' Create object with BirdID#' Create object with all used steps for analysis
 stps <- trk2 %>% dplyr::select(BirdID,steps) %>% unnest(cols = steps)
 
 #' Check
