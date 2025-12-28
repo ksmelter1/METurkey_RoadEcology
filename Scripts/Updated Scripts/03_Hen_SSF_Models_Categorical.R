@@ -56,8 +56,7 @@ load("RData/Updated SP25/02RandomStepsTODLanduse_Ag_Weather.RData")
 Win.Prim.Mor.TMB <- glmmTMB(
   case_ ~  
     -1 +                            
-    primary + Developed + Agriculture +
-    primary*Developed +  primary*Agriculture +
+    primary*Developed +  primary*Agriculture + primary*Conifer +
     (1 | str_ID),       
   family = poisson(),        
   data = ssf.final.winter %>% filter(tod_bin == "Morning"),   
@@ -70,8 +69,7 @@ summary(Win.Prim.Mor.TMB)
 Win.Prim.Mid.TMB <- glmmTMB(
   case_ ~ 
     -1 +                                
-    primary + Developed + Agriculture +
-    primary*Developed +  primary*Agriculture +           
+    primary*Developed +  primary*Agriculture + primary*Conifer +         
     (1 | str_ID),
   family = poisson(),                  
   data = ssf.final.winter %>% filter(tod_bin == "Midday"),  
@@ -84,8 +82,7 @@ summary(Win.Prim.Mid.TMB)
 Win.Prim.Aft.TMB <- glmmTMB(
   case_ ~ 
     -1 +                                
-    primary + Developed + Agriculture +
-    primary*Developed +  primary*Agriculture +               
+    primary*Developed +  primary*Agriculture + primary*Conifer +           
     (1 | str_ID),
   family = poisson(),                  
   data = ssf.final.winter %>% filter(tod_bin == "Afternoon"),  
@@ -100,8 +97,7 @@ summary(Win.Prim.Aft.TMB)
 Win.Sec.Mor.TMB <- glmmTMB(
   case_ ~  
     -1 +                            
-    secondary + Developed + Agriculture +
-    secondary*Developed +  secondary*Agriculture +
+    secondary*Developed +  secondary*Agriculture + secondary*Conifer +
     (1 | str_ID),       
   family = poisson(),        
   data = ssf.final.winter %>% filter(tod_bin == "Morning"),   
@@ -114,8 +110,7 @@ summary(Win.Sec.Mor.TMB)
 Win.Sec.Mid.TMB <- glmmTMB(
   case_ ~ 
     -1 +                                
-    secondary + Developed + Agriculture +
-    secondary*Developed +  secondary*Agriculture +      
+    secondary*Developed +  secondary*Agriculture + secondary*Conifer +    
     (1 | str_ID),
   family = poisson(),                  
   data = ssf.final.winter %>% filter(tod_bin == "Midday"),  
@@ -128,8 +123,7 @@ summary(Win.Sec.Mid.TMB)
 Win.Sec.Aft.TMB <- glmmTMB(
   case_ ~ 
     -1 +                                
-    secondary + Developed + Agriculture +
-    secondary*Developed +  secondary*Agriculture +         
+    secondary*Developed +  secondary*Agriculture + secondary*Conifer +       
     (1 | str_ID),
   family = poisson(),                  
   data = ssf.final.winter %>% filter(tod_bin == "Afternoon"),  
@@ -145,8 +139,7 @@ summary(Win.Sec.Aft.TMB)
 Spr.Prim.Mor.TMB <- glmmTMB(
   case_ ~  
     -1 +                            
-    primary + Developed + Agriculture +
-    primary*Developed +  primary*Agriculture + 
+    primary*Developed +  primary*Agriculture + primary*Conifer +
     (1 | str_ID),       
   family = poisson(),        
   data = ssf.final.spring %>% filter(tod_bin == "Morning"),   
@@ -159,8 +152,7 @@ summary(Spr.Prim.Mor.TMB)
 Spr.Prim.Mid.TMB <- glmmTMB(
   case_ ~ 
     -1 +                                
-    primary + Developed + Agriculture +
-    primary*Developed +  primary*Agriculture +       
+    primary*Developed +  primary*Agriculture + primary*Conifer +      
     (1 | str_ID),
   family = poisson(),                  
   data = ssf.final.spring %>% filter(tod_bin == "Midday"),  
@@ -172,8 +164,8 @@ summary(Spr.Prim.Mid.TMB)
 
 Spr.Prim.Aft.TMB <- glmmTMB(
   case_ ~ 
-    -1 +   primary + Developed + Agriculture +
-    primary*Developed +  primary*Agriculture +                               
+    -1 +   
+    primary*Developed +  primary*Agriculture + primary*Conifer +
     (1 | str_ID),
   family = poisson(),                  
   data = ssf.final.spring %>% filter(tod_bin == "Afternoon"),  
@@ -188,8 +180,7 @@ summary(Spr.Prim.Aft.TMB)
 Spr.Sec.Mor.TMB <- glmmTMB(
   case_ ~  
     -1 +                            
-    secondary + Developed + Agriculture +
-    secondary*Developed + secondary*Agriculture + 
+    secondary*Developed +  secondary*Agriculture + secondary*Conifer +   
     (1 | str_ID),       
   family = poisson(),        
   data = ssf.final.spring %>% filter(tod_bin == "Morning"),   
@@ -202,8 +193,7 @@ summary(Spr.Sec.Mor.TMB)
 Spr.Sec.Mid.TMB <- glmmTMB(
   case_ ~ 
     -1 +                                
-    secondary + Developed + Agriculture +
-    secondary*Developed + secondary*Agriculture +     
+    secondary*Developed +  secondary*Agriculture + secondary*Conifer +      
     (1 | str_ID),
   family = poisson(),                  
   data = ssf.final.spring %>% filter(tod_bin == "Midday"),  
@@ -215,8 +205,8 @@ summary(Spr.Sec.Mid.TMB)
 
 Spr.Sec.Aft.TMB <- glmmTMB(
   case_ ~ 
-    -1 +   secondary + Developed + Agriculture +
-    secondary*Developed + secondary*Agriculture +                              
+    -1 +   
+    secondary*Developed +  secondary*Agriculture + secondary*Conifer +   
     (1 | str_ID),
   family = poisson(),                  
   data = ssf.final.spring %>% filter(tod_bin == "Afternoon"),  
@@ -231,8 +221,7 @@ summary(Spr.Sec.Aft.TMB)
 Pre.Prim.Mor.TMB <- glmmTMB(
   case_ ~  
     -1 +                            
-    primary + Developed + Agriculture +
-    primary*Developed +  primary*Agriculture + 
+    primary*Developed +  primary*Agriculture + primary*Conifer +
     (1 | str_ID),       
   family = poisson(),        
   data = ssf.final.pre %>% filter(tod_bin == "Morning"),   
@@ -245,8 +234,7 @@ summary(Pre.Prim.Mor.TMB)
 Pre.Prim.Mid.TMB <- glmmTMB(
   case_ ~ 
     -1 +                                
-    primary + Developed + Agriculture +
-    primary*Developed +  primary*Agriculture +       
+    primary*Developed +  primary*Agriculture + primary*Conifer +      
     (1 | str_ID),
   family = poisson(),                  
   data = ssf.final.pre %>% filter(tod_bin == "Midday"),  
@@ -258,8 +246,8 @@ summary(Pre.Prim.Mid.TMB)
 
 Pre.Prim.Aft.TMB <- glmmTMB(
   case_ ~ 
-    -1 +   primary + Developed + Agriculture +
-    primary*Developed +  primary*Agriculture +                               
+    -1 +   
+    primary*Developed +  primary*Agriculture + primary*Conifer +
     (1 | str_ID),
   family = poisson(),                  
   data = ssf.final.pre %>% filter(tod_bin == "Afternoon"),  
@@ -275,8 +263,7 @@ summary(Pre.Prim.Aft.TMB)
 Pre.Sec.Mor.TMB <- glmmTMB(
   case_ ~  
     -1 +                            
-    secondary + Developed + Agriculture +
-    secondary*Developed + secondary*Agriculture +  
+    secondary*Developed +  secondary*Agriculture + secondary*Conifer +   
     (1 | str_ID),       
   family = poisson(),        
   data = ssf.final.pre %>% filter(tod_bin == "Morning"),   
@@ -289,8 +276,7 @@ summary(Pre.Sec.Mor.TMB)
 Pre.Sec.Mid.TMB <- glmmTMB(
   case_ ~ 
     -1 +                                
-    secondary + Developed + Agriculture +
-    secondary*Developed + secondary*Agriculture +         
+    secondary*Developed +  secondary*Agriculture + secondary*Conifer +            
     (1 | str_ID),
   family = poisson(),                  
   data = ssf.final.pre %>% filter(tod_bin == "Midday"),  
@@ -302,8 +288,8 @@ summary(Pre.Sec.Mid.TMB)
 
 Pre.Sec.Aft.TMB <- glmmTMB(
   case_ ~ 
-    -1 + secondary + Developed + Agriculture +
-    secondary*Developed + secondary*Agriculture +                               
+    -1 + 
+    secondary*Developed +  secondary*Agriculture + secondary*Conifer +   
     (1 | str_ID),
   family = poisson(),                  
   data = ssf.final.pre %>% filter(tod_bin == "Afternoon"),  
@@ -319,8 +305,7 @@ summary(Pre.Sec.Aft.TMB)
 Sum.Prim.Mor.TMB <- glmmTMB(
   case_ ~  
     -1 +                            
-    primary + Developed + Agriculture +
-    primary*Developed +  primary*Agriculture + 
+    primary*Developed +  primary*Agriculture + primary*Conifer +
     (1 | str_ID),       
   family = poisson(),        
   data = ssf.final.sum %>% filter(tod_bin == "Morning"),   
@@ -333,8 +318,7 @@ summary(Sum.Prim.Mor.TMB)
 Sum.Prim.Mid.TMB <- glmmTMB(
   case_ ~ 
     -1 +                                
-    primary + Developed + Agriculture +
-    primary*Developed +  primary*Agriculture +       
+    primary*Developed +  primary*Agriculture + primary*Conifer +    
     (1 | str_ID),
   family = poisson(),                  
   data = ssf.final.sum %>% filter(tod_bin == "Midday"),  
@@ -346,8 +330,8 @@ summary(Sum.Prim.Mid.TMB)
 
 Sum.Prim.Aft.TMB <- glmmTMB(
   case_ ~ 
-    -1 +   primary + Developed + Agriculture +
-    primary*Developed +  primary*Agriculture +                               
+    -1 +   
+    primary*Developed +  primary*Agriculture + primary*Conifer +
     (1 | str_ID),
   family = poisson(),                  
   data = ssf.final.sum %>% filter(tod_bin == "Afternoon"),  
@@ -363,8 +347,7 @@ summary(Sum.Prim.Aft.TMB)
 Sum.Sec.Mor.TMB <- glmmTMB(
   case_ ~  
     -1 +                            
-    secondary + Developed + Agriculture +
-    secondary*Developed + secondary*Agriculture +  
+    secondary*Developed +  secondary*Agriculture + secondary*Conifer +    
     (1 | str_ID),       
   family = poisson(),        
   data = ssf.final.sum %>% filter(tod_bin == "Morning"),   
@@ -377,8 +360,7 @@ summary(Sum.Sec.Mor.TMB)
 Sum.Sec.Mid.TMB <- glmmTMB(
   case_ ~ 
     -1 +                                
-    secondary + Developed + Agriculture +
-    secondary*Developed + secondary*Agriculture +         
+    secondary*Developed +  secondary*Agriculture + secondary*Conifer +          
     (1 | str_ID),
   family = poisson(),                  
   data = ssf.final.sum %>% filter(tod_bin == "Midday"),  
@@ -390,8 +372,8 @@ summary(Sum.Sec.Mid.TMB)
 
 Sum.Sec.Aft.TMB <- glmmTMB(
   case_ ~ 
-    -1 + secondary + Developed + Agriculture +
-    secondary*Developed + secondary*Agriculture +                               
+    -1 + 
+    secondary*Developed +  secondary*Agriculture + secondary*Conifer +   
     (1 | str_ID),
   family = poisson(),                  
   data = ssf.final.sum %>% filter(tod_bin == "Afternoon"),  
@@ -437,26 +419,6 @@ models <- list(
   Sum.Sec.Mor  = Sum.Sec.Mor.TMB,
   Sum.Sec.Mid  = Sum.Sec.Mid.TMB,
   Sum.Sec.Aft  = Sum.Sec.Aft.TMB
-  
-  # Fall - Primary Roads
-  # Fall.Prim.Mor.Dev.TMB = Fall.Prim.Mor.Dev.TMB,
-  # Fall.Prim.Mid.Dev.TMB = Fall.Prim.Mid.Dev.TMB,
-  # 
-  # Fall.Prim.Mor.For.TMB = Fall.Prim.Mor.For.TMB,
-  # Fall.Prim.Mid.For.TMB = Fall.Prim.Mid.For.TMB,
-  # 
-  # Fall.Prim.Mor.Open.TMB = Fall.Prim.Mor.Open.TMB,
-  # Fall.Prim.Mid.Open.TMB = Fall.Prim.Mid.Open.TMB,
-  # 
-  # # Fall - Secondary Roads
-  # Fall.Sec.Mor.Dev.TMB = Fall.Sec.Mor.Dev.TMB,
-  # Fall.Sec.Mid.Dev.TMB = Fall.Sec.Mid.Dev.TMB,
-  # 
-  # Fall.Sec.Mor.For.TMB = Fall.Sec.Mor.For.TMB,
-  # Fall.Sec.Mid.For.TMB = Fall.Sec.Mid.For.TMB,
-  # 
-  # Fall.Sec.Mor.Open.TMB = Fall.Sec.Mor.Open.TMB,
-  # Fall.Sec.Mid.Open.TMB = Fall.Sec.Mid.Open.TMB
 )
 
 coefs.out <- purrr::map_df(names(models), function(model_name) {
@@ -474,7 +436,6 @@ coefs.out <- purrr::map_df(names(models), function(model_name) {
         Season == "Spr" ~ "Spring Movements",
         Season == "Pre" ~ "Pre-Nesting",
         Season == "Sum" ~ "Summer",
-        Season == "Fal" ~ "Fall",
         TRUE ~ NA_character_
       ),
       
@@ -498,7 +459,7 @@ coefs.out <- purrr::map_df(names(models), function(model_name) {
       # Landuse
       Landuse = dplyr::case_when(
         stringr::str_detect(term, "Developed") ~ "Developed",
-        stringr::str_detect(term, "Forest") ~ "Forest",
+        stringr::str_detect(term, "Conifer") ~ "Conifer",
         stringr::str_detect(term, "Agriculture") ~ "Agriculture",
         TRUE ~ NA_character_
       ),
@@ -532,21 +493,21 @@ ggplot(coefs.out %>%
     alpha = 0.9
   ) +
   
-  geom_hline(yintercept = 0, linetype = "dashed", color = "gray50") +
+  geom_hline(yintercept = 0, linetype = "dashed", color = "gray40") +
   
   facet_wrap(~ Season) +
   
   labs(
     x = "Time of day",
-    y = "Selection relative to forest",
+    y = "Selection relative to hardwood forest",
     color = "Land cover type",
     shape = "Road type"  
   ) +
   
   scale_color_manual(values = c(
-    "Forest" = "#606c38",
-    "Agriculture" = "#Bc6c25",
-    "Developed" = "brown"
+    "Conifer" = "#183a37",
+    "Agriculture" = "#fb8b24",
+    "Developed" = "#9a031e"
   )) +
   
   scale_shape_manual(values = c(
@@ -572,41 +533,43 @@ ggplot(coefs.out %>%
   )
 
 ################################################################################
-## Creating Prediction Plots
+###############################################################################X
+
+
 
 # Covariates
-primary_covariate <- seq(-0.78, 3.2, 0.1) #ssf.final.winter %>% filter(tod_bin == "Morning") %>% pull(primary) %>% summary()
-developed_covariate <- c(0, 1) # 0 or 1
-
-covariate_tbl <- expand.grid(primary_covariate, developed_covariate) %>% 
-  rename(primary = Var1, developed = Var2)
-
-# no link function
-prediction_bootstrapped <- pmap(covariate_tbl, function(primary, developed){
-  #covariate mean and sd estimates come from the summary function
-  output <- -1 + primary*rnorm(10000, -0.25032, 0.86220) + developed*rnorm(10000, -0.13263, 0.05083) + primary*developed*rnorm(10000, 0.56920, 0.06716)
-  tibble(primary = primary, developed = developed, prediction = output) %>% 
-    return()
-}) %>% 
-  bind_rows()
-
-ggplot(prediction_bootstrapped, aes(x = primary, y = prediction)) +
-  stat_lineribbon(.width = c(.95), alpha = 0.5, point_interval = mean_qi) +
-  facet_wrap(vars(developed)) +
-  theme_bw()
-
-#link function
-prediction_bootstrapped_link <- pmap(covariate_tbl, function(primary, developed){
-  #covariate mean and sd estimates come from the summary function
-  output <- exp(-1 + primary*rnorm(10000, -0.25032, 0.86220) + developed*rnorm(10000, -0.13263, 0.05083) + primary*developed*rnorm(10000, 0.56920, 0.06716))
-  tibble(primary = primary, developed = developed, prediction = output) %>% 
-    return()
-}) %>% 
-  bind_rows()
-
-ggplot(prediction_bootstrapped_link, aes(x = primary, y = prediction)) +
-  stat_lineribbon(.width = c(.95), alpha = 0.5, point_interval = mean_qi) +
-  facet_wrap(vars(developed)) +
-  ylab("Distance to Primary Road") +
-  xlab("Deviations from the Mean") +
-  theme_bw()
+# primary_covariate <- seq(-0.78, 3.2, 0.1) #ssf.final.winter %>% filter(tod_bin == "Morning") %>% pull(primary) %>% summary()
+# developed_covariate <- c(0, 1) # 0 or 1
+# 
+# covariate_tbl <- expand.grid(primary_covariate, developed_covariate) %>% 
+#   rename(primary = Var1, developed = Var2)
+# 
+# # no link function
+# prediction_bootstrapped <- pmap(covariate_tbl, function(primary, developed){
+#   #covariate mean and sd estimates come from the summary function
+#   output <- -1 + primary*rnorm(10000, -0.25032, 0.86220) + developed*rnorm(10000, -0.13263, 0.05083) + primary*developed*rnorm(10000, 0.56920, 0.06716)
+#   tibble(primary = primary, developed = developed, prediction = output) %>% 
+#     return()
+# }) %>% 
+#   bind_rows()
+# 
+# ggplot(prediction_bootstrapped, aes(x = primary, y = prediction)) +
+#   stat_lineribbon(.width = c(.95), alpha = 0.5, point_interval = mean_qi) +
+#   facet_wrap(vars(developed)) +
+#   theme_bw()
+# 
+# #link function
+# prediction_bootstrapped_link <- pmap(covariate_tbl, function(primary, developed){
+#   #covariate mean and sd estimates come from the summary function
+#   output <- exp(-1 + primary*rnorm(10000, -0.25032, 0.86220) + developed*rnorm(10000, -0.13263, 0.05083) + primary*developed*rnorm(10000, 0.56920, 0.06716))
+#   tibble(primary = primary, developed = developed, prediction = output) %>% 
+#     return()
+# }) %>% 
+#   bind_rows()
+# 
+# ggplot(prediction_bootstrapped_link, aes(x = primary, y = prediction)) +
+#   stat_lineribbon(.width = c(.95), alpha = 0.5, point_interval = mean_qi) +
+#   facet_wrap(vars(developed)) +
+#   ylab("Distance to Primary Road") +
+#   xlab("Deviations from the Mean") +
+#   theme_bw()

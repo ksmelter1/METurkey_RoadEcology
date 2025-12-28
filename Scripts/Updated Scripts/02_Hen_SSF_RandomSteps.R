@@ -61,9 +61,10 @@ lapply(packages, load_packages)
 # See covertyps for NLCD here: https://www.mrlc.gov/data/legends/national-land-cover-database-class-legend-and-description
 # Liam note: consider using the terra::subset function in the future- should fix your RAM issue
 terra::values(me.nlcd) <- ifelse(terra::values(me.nlcd) %in% c(21:24), yes = "Developed", ## Developed Open, low
-                                 no = ifelse(terra::values(me.nlcd) %in% c(41:43, 90), yes = "Forest", ## Hardwood, Conifer, Wooded Wetland
+                                 no = ifelse(terra::values(me.nlcd) %in% c(41, 90), yes = "Hardwood", ## Hardwood
+                                             no = ifelse(terra::values(me.nlcd) %in% c(42:43), yes = "Conifer",
                                              no = ifelse(terra::values(me.nlcd) %in% c(81:82), yes = "Agriculture", ## Agriculture
-                                             no = "Other")))
+                                             no = "Other"))))
 
 # Crop ME NLCD raster to the Maine outline
 me.nlcd <- crop(me.nlcd, vect(me.outline))
@@ -260,7 +261,8 @@ random_steps <-amt::random_steps(
   extract_covariates(me.nlcd, where= "end") %>%
   dplyr::rename("Landuse" = Class) %>%
   dplyr::mutate(Developed = ifelse(Landuse == "Developed", 1, 0)) %>%
-  dplyr::mutate(Forest = ifelse(Landuse == "Forest", 1, 0)) %>%
+  dplyr::mutate(Hardwood = ifelse(Landuse == "Hardwood", 1, 0)) %>%
+  dplyr::mutate(Conifer = ifelse(Landuse == "Conifer", 1, 0)) %>%
   dplyr::mutate(Agriculture = ifelse(Landuse == "Agriculture", 1, 0)) %>%
   dplyr::mutate(Other = ifelse(Landuse == "Other", 1, 0))
 
@@ -503,5 +505,3 @@ ssf.final.fall <- ssf.final %>%
 #' Check
 #' Looks good
 #' mapview(random_steps.sf.landcov.tod)
-
-#' Output RData for models
