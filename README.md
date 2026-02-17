@@ -1,6 +1,6 @@
 Wild Turkeys Exhibit a Functional Response in Their Selection of Roads
 
-Author Kyle J. Smelter, Department of Ecosystem Science and Management, Pennsylvania State University, University Park, Pennsylvania, USA
+Author: Kyle J. Smelter, Department of Ecosystem Science and Management, Pennsylvania State University, University Park, Pennsylvania, USA
 
 Point of Contact: Kyle J. Smelter (Kjs7255@psu.edu)
 
