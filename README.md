@@ -1,9 +1,5 @@
 Wild Turkeys Exhibit a Functional Response in Their Selection of Roads
 
-Author: Kyle J. Smelter, Department of Ecosystem Science and Management, Pennsylvania State University, University Park, Pennsylvania, USA
-
-Point of Contact: Kyle J. Smelter (Kjs7255@psu.edu)
-
 Abstract:
 Animals adjust their space use patterns in response to landscape features, making it essential for wildlife managers to understand potential barriers that may constrain or prevent movement. 
 However, wildlife-habitat relationships are often context-dependent, with habitat selection influenced by a variety of abiotic and biotic factors. 
